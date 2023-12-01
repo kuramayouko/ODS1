@@ -8,9 +8,10 @@
 		<meta name="description" content="ODS 1 - Resumo">
     	<meta name="author" content="Devilish" >
 		<link rel="stylesheet" type="text/css" href="./css/style.css">
+		<script src="./javascript/site.js"></script>
 	</head>
 		
-	<body>
+	<body onload="loadLStorage();">
 		<header>
 			<div class="top-bar">
 				<figure>
@@ -32,28 +33,38 @@
 		</header>
 		
 		<main>
-			<div class="centered">
-				<form action="https://www.w3schools.com/action_page.php">
-    				<label for="user">Nome:</label> <br>
-      			<input id="user" required="" type="text" size="50"> <br>
-      			<label for="age">Idade:</label> <br>
-      			<input id="age" min="18" max="120" value="18" type="number"> <br>
-      			<label for="mail">E-mail:</label> <br>
-      			<input id="mail" required="" type="text" size="50"> <br>
-      			<label for="interest">Topico:</label> <br>
-      			<select id="interest" name="interest">
-        				<option selected="selected" value="lib_economica">Liberdade Econômica</option>
-        				<option value="desburocratizar">Desburocratização</option>
-        				<option value="reformapenal">Reforma Penal</option>
-        				<option value="fimcorporativismo">Fim Do Corporativismo</option>
-        				<option value="direitopropriedade">Direito a Propriedade</option>
-      			</select>
-      			<br>
-      			<label for="suggestion">Sugestões:</label> <br>
-      			<textarea id="suggestion" name="suggestion" rows="5" cols="30"></textarea>
-      			<br>
-      			<input value="Submit" type="submit"> <br>
-    			</form>
+			
+			 <div class="centered">
+				<h2>Sugestões</h2>
+				<form>
+					<label for="user">Nome:</label> <br>
+					<input id="user" required="" type="text" size="50"> <br>
+					<label for="age">Idade:</label> <br>
+					<input id="age" min="18" max="120" value="18" type="number"> <br>
+					<label for="mail">E-mail:</label> <br>
+					<input id="mail" required="" type="text" size="50"> <br>
+					<label for="interest">Topico:</label> <br>
+					<select id="interest" name="interest">
+						<option selected="selected" value="lib_economica">Liberdade Econômica</option>
+						<option value="desburocratizar">Desburocratização</option>
+						<option value="reformapenal">Reforma Penal</option>
+						<option value="fimcorporativismo">Fim Do Corporativismo</option>
+						<option value="direitopropriedade">Direito a Propriedade</option>
+					</select>
+					<br>
+					<label for="suggestion">Sugestões:</label> <br>
+					<textarea id="suggestion" name="suggestion" rows="5" cols="30"></textarea>
+					<br>
+					<input value="Enviar" type="submit" onclick="saveLStorage(); return false;"><br>
+					<input value="Limpar" type="button" onclick="clearForm();" class="delbtn"><br>
+					<input value="Buscar Nome" type="button" onclick="loadSearchName();" class="searchbtn"><br>
+					<input id="purgeLS" value="Apagar Local Storage" type="button" onclick="purgeLStorage();" class="purgebtn"><br>
+				</form>
+				
+				<h2>Dados</h2>
+				
+				<center><section id="formDataList" class="data-container"></section></center>
+				
 			</div>
 		</main>
 		
